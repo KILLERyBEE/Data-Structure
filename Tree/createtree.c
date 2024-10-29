@@ -85,51 +85,69 @@ void inorder(struct node *root)
     inorder(root->right);
 }
 
+void viewrootdata(struct node *root)
+{
+    printf("\nThe root data is %d",root->data);
+}
+
 int main()
 {
     struct node *root = NULL;
     int c,data;
     do
     {
+    printf("\nEnter 1 To initialize Root Node");    
+    printf("\nEnter 2 for Insert At Left");
+    printf("\nEnter 3 for Insert At Right");
+    printf("\nEnter 4 for Inorder Traversal");
+    printf("\nEnter 5 for Pre-order Traversal");
+    printf("\nEnter 6 for Post-order Traversal");
+    printf("\nEnter 7 To View Root Data");
+    printf("\nEnter 8 To Exit::");
     printf("\nEnter the choice");
     scanf("%d",&c);
-    printf("\nEnter 1 for Insert At Left");
-    printf("\nEnter 2 for Insert At Right");
-    printf("\nEnter 3 for Inorder Traversal");
-    printf("\nEnter 4 for Pre-order Traversal");
-    printf("\nEnter 5 for Post-order Traversal");
-    printf("\nEnter 6 To Exit::");
     switch(c)
     {
         case 1:
-        printf("\nEnter data ");
+        printf("Enter data for Root node ");
         scanf("%d",&data);
-        insertatleft(&root,data);
+        createnode(data);
+        printf("\nRoot Node initialized ...");
         break;
 
         case 2:
         printf("\nEnter data ");
         scanf("%d",&data);
-        insertatright(&root,data);
+        insertatleft(&root,data);
         break;
 
         case 3:
-        inorder(root);
+        printf("\nEnter data ");
+        scanf("%d",&data);
+        insertatright(&root,data);
         break;
 
         case 4:
-        preorder(root);
+        inorder(root);
         break;
 
         case 5:
-        postorder(root);
+        preorder(root);
         break;
 
         case 6:
+        postorder(root);
+        break;
+
+        case 7:
+        viewrootdata(root);
+        break;
+
+        case 8:
         printf("Exiting.......");
         break;
 
     }
-    }while(c!=6);
+    }while(c!=8);
     return 0;
 }
